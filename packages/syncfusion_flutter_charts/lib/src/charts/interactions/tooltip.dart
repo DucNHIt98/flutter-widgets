@@ -25,7 +25,7 @@ class TooltipBehavior extends ChartBehavior {
     this.opacity = 1.0,
     this.borderColor = Colors.transparent,
     this.borderWidth = 1,
-    this.duration = 3000,
+    this.duration = 300000,
     this.shouldAlwaysShow = false,
     this.elevation = 2.5,
     this.canShowMarker = true,
@@ -533,7 +533,7 @@ class TooltipBehavior extends ChartBehavior {
       return;
     }
 
-    final Offset primaryLocalPosition = Offset(x, y);
+    final Offset primaryLocalPosition = Offset(x + 10, y + 10);
     final Offset primaryPosition = parent.localToGlobal(primaryLocalPosition);
     RenderBox? child = parent.plotArea?.lastChild;
     while (child != null) {
@@ -577,7 +577,7 @@ class TooltipBehavior extends ChartBehavior {
           yAxisName != null ? parent.axisFromName(yAxisName) : parent.yAxis;
       final Offset position =
           rawValueToPixelPoint(x, y, xAxis, yAxis, parent.isTransposed);
-      showByPixel(position.dx, position.dy);
+      showByPixel(position.dx + 10, position.dy + 10);
     }
   }
 
